@@ -1,8 +1,14 @@
 package ru.hogwarts.chool.model;
 
-import java.util.Objects;
+import nonapi.io.github.classgraph.json.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import java.util.Objects;
+@Entity
 public class Faculty {
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String color;
@@ -62,4 +68,5 @@ public class Faculty {
                 ", color='" + color + '\'' +
                 '}';
     }
+
 }
