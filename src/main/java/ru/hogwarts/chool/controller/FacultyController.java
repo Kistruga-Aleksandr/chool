@@ -48,11 +48,12 @@ public class FacultyController {
     }
 
     @DeleteMapping("{facultyId}")
-    public Faculty deleteFaculty(@PathVariable Long facultyId) {
-        return facultyService.deleteFaculty(facultyId);
+    public ResponseEntity deleteFaculty(@PathVariable Long facultyId) {
+         facultyService.deleteFaculty(facultyId);
+         return ResponseEntity.ok().build();
     }
 
-    @GetMapping()
+    @GetMapping("/color")
     public ResponseEntity<Collection<Faculty>> searchFacultyByColor(@RequestParam(required = false) String color) {
         if (color != null && color.isBlank()) {
             return ResponseEntity.ok(facultyService.searchFacultyByColor(color));

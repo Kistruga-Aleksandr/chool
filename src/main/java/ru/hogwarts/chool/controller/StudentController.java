@@ -46,11 +46,12 @@ public class StudentController {
     }
 
     @DeleteMapping("{studentId}")
-    public Student deleteStudent(@PathVariable Long studentId) {
-        return studentService.deleteStudent(studentId);
+    public ResponseEntity deleteStudent(@PathVariable Long studentId) {
+        studentService.deleteStudent(studentId);
+        return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/age")
     public  ResponseEntity<Collection<Student>> serchStudentyByAge (@RequestParam(required = false) int age) {
         if (age > 0) {
             return ResponseEntity.ok(studentService.serchStudentyByAge(age));

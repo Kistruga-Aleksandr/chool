@@ -1,7 +1,6 @@
 package ru.hogwarts.chool.service;
 
 
-import nonapi.io.github.classgraph.json.Id;
 import org.springframework.stereotype.Service;
 import ru.hogwarts.chool.model.Faculty;
 import ru.hogwarts.chool.repository.FacultyRepository;
@@ -19,21 +18,19 @@ public class FacultyService {
 
 
     public Faculty creteFaculty(Faculty faculty) {
-        facultyRepository.save(faculty);
-        return faculty;
+       return facultyRepository.save(faculty);
     }
 
-    public Faculty getFacultyById(Long studentId) {
-        return facultyRepository.getById(studentId);
+    public Faculty getFacultyById(long facultyId) {
+        return facultyRepository.getById(facultyId);
     }
 
     public Faculty updateFaculty(Faculty faculty) {
-        facultyRepository.save(faculty);
-        return faculty;
+       return facultyRepository.save(faculty);
     }
 
-    public Faculty deleteFaculty(Long facultyId) {
-       return facultyRepository.deleteById(facultyId);
+    public void deleteFaculty(Long facultyId) {
+       facultyRepository.deleteById(facultyId);
     }
 
     public Collection<Faculty> getAllFaculty() {

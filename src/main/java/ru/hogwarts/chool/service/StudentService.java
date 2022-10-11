@@ -1,6 +1,4 @@
 package ru.hogwarts.chool.service;
-
-import nonapi.io.github.classgraph.json.Id;
 import org.springframework.stereotype.Service;
 import ru.hogwarts.chool.model.Student;
 import ru.hogwarts.chool.repository.StudentRepository;
@@ -17,24 +15,20 @@ public class StudentService {
     }
 
     public Student creteStudent(Student student) {
-        if (studentRepository.findAll().equals(student)) {
-            return student;
-        }studentRepository.save(student);
-        return student;
+       return studentRepository.save(student);
     }
 
-
     public Student getStudentById(Long studentId) {
-        return studentRepository.getById(studentId);
+
+        return studentRepository.findById(studentId).get();
     }
 
     public Student updateStudent( Student student) {
-        studentRepository.save(student);
-        return student;
+       return studentRepository.save(student);
     }
 
-    public Student deleteStudent(Long studentId) {
-            return studentRepository.deleteById(studentId);
+    public void deleteStudent(long studentId) {
+        studentRepository.deleteById(studentId);
     }
 
     public Collection<Student> getAllStudent() {
