@@ -4,14 +4,19 @@ package ru.hogwarts.chool.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 @Entity
 public class Student {
     @Id
     @GeneratedValue
     private  long id;
+
     private  String name;
     private  int age;
+
+    @ManyToOne
+    private Faculty faculty;
 
 
     public void setId(Long id) {
@@ -37,6 +42,9 @@ public class Student {
     public int getAge() {
         return age;
     }
+
+    public Faculty getFaculty(){return faculty;}
+    public void setFaculty(Faculty faculty){this.faculty = faculty;}
 
     @Override
     public boolean equals(Object o) {
