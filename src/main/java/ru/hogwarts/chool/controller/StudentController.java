@@ -53,4 +53,10 @@ public class StudentController {
         return studentService.getFacultyByStudent(studentId);
     }
 
+    @PatchMapping("/{studentId}/avatar")
+    public StudentRecord patchStudentAvatar(@PathVariable long studentId, @RequestParam("avatarId")long avatarId) {
+        return studentService.patchStudentAvatar(studentId, avatarId);
+    }
+
+
 }

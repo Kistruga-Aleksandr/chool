@@ -23,6 +23,12 @@ public class ExceptionHandler {
                 body(String.format("Студент с id = %d не найден", e.getId()));
     }
 
+    @org.springframework.web.bind.annotation.ExceptionHandler(AvatarNotFoundException.class)
+    public ResponseEntity<String> handlerAvatarNotFoundException(AvatarNotFoundException e){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).
+                body(String.format("Студент с id = %d не найден", e.getId()));
+    }
+
     @org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<String> handlerMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getBindingResult().getFieldErrors().stream().

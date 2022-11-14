@@ -1,10 +1,7 @@
 package ru.hogwarts.chool.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Objects;
 @Entity
 public class Student {
@@ -18,6 +15,20 @@ public class Student {
     @ManyToOne
     private Faculty faculty;
 
+    @OneToOne
+    private Avatar avatar;
+
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public void setId(Long id) {
         this.id = id;
